@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3001/projects";
+const BASE_URL = "https://backend-portfolioeugene.onrender.com";
 
 export async function fetchProjects() {
   const res = await fetch(BASE_URL);
