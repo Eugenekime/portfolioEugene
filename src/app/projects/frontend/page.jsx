@@ -41,8 +41,10 @@ export default function page() {
               <h2 className="text-xl  font-bold mt-2 text-center text-white">
                 {proj.title}
               </h2>
-              <p className="text-white">{proj.description}</p>
-              <p className="text-white text-sm mt-2">stack: {proj.stack}</p>
+              <p className="text-white md:w-[87.7%]">{proj.description}</p>
+              <p className="text-white text-sm mt-2 md:w-[87.7%]">
+                stack: {proj.stack}
+              </p>
             </a>
             <a
               href={`${proj.code}`}
