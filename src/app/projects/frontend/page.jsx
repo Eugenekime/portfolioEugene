@@ -5,13 +5,19 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { fetchProjects } from "@/lib/api";
 import FadeInDiv from "@/animations/FadeInDiv";
+import Loader from "@/animations/Loader";
 
 export default function page() {
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchProjects().then(setProjects).catch(console.error);
+    fetchProjects()
+      .then(setProjects)
+      .catch(console.error)
+      .finally(() => setLoading(false));
   }, []);
+
   return (
     <div className="bg-[#212829] w-full p-5 min-h-screen">
       <header>
@@ -21,6 +27,7 @@ export default function page() {
           </Link>
         </FadeInDiv>
       </header>
+      {loading && <Loader></Loader>}
       <div className="flex flex-col justify-between items-center">
         {projects.map((proj) => (
           <FadeInDiv
